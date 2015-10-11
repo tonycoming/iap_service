@@ -5,29 +5,29 @@ import (
 	"net"
 	"os"
 
-	pb "proto"
+	apple "service/appstore"
+	google "service/playstore"
 
 	"google.golang.org/grpc"
+	//	log "github.com/gonet2/libs/nsq-logger"
+	//	_ "github.com/gonet2/libs/statsd-pprof"
 )
 
-//	log "github.com/gonet2/libs/nsq-logger"
-
-//	_ "github.com/gonet2/libs/statsd-pprof"
-
 const (
-	_port = ":60003"
+	_port   = ":60003"
+	SERVICE = "IAP SERVICE"
 )
 
 func main() {
 	log.SetPrefix(SERVICE)
 	lis, err := net.Listen("tcp", _port)
 	if err != nil {
-		//	log.Critical(err)
 		os.Exit(-1)
 	}
-	//	log.Info("listening on ", lis.Addr())
 	s := grpc.NewServer()
-	ins := New(1, 10, 10)
-	pb.RegisterIAPServiceServer(s, ins)
+	appleService := apple.New(1, 10, 10)
+	googleService := google.New()
+	apple.RegisterService(s, appleService)
+	google.RegisterService(s, googleService)
 	s.Serve(lis)
 }
