@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package proto;
+
+
+service GoogleIapService {
+	rpc GooglePayVerify(Request) returns (Response); 
+}
+
+
+message Request{ // google pay verify request
+	int32 project_id = 3; 
+	string inapp_purchase_data = 1;
+	string signature = 2;
+}
+
+message Response{ // response 
+	int32 status = 1; // 1 sucess
+	string options = 2;
+	string product_id = 3; 
+}
