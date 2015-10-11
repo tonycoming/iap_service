@@ -1,3 +1,5 @@
+package doc
+
 /*
 google  没有想sb苹果一样提供一个查询接口，google 采用的数字签名的方式
 detail:
@@ -13,4 +15,3 @@ RESPONSE_CODEValue is 0 if the purchase was success, error otherwise.
 INAPP_PURCHASE_DATAA String in JSON format that contains details about the purchase order. See table 4 for a description of the JSON fields.
 INAPP_DATA_SIGNATURE String containing the signature of the purchase data that was signed with the private key of the developer. The data signature uses the RSASSA-PKCS1-v1_5 scheme.
 */
-
