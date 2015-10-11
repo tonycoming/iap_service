@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package proto;
+
+
+service IAPService {
+	rpc ApplePayVerify(IosRequest) returns (IosResponse); 
+	rpc GooglePayVerify(GPRequest) returns (GPResponse); 
+}
+
+message IosRequest{ // apple pay verify request
+	string receipt_data = 1;
+}
+
+message Product{
+	string product_id = 1;
+	string item_id = 2;
+}
+
+message IosResponse{ // response 
+	int32 status = 1; // 0 is sucess
+	string order_id = 2;
+	repeated Product products = 3;
+}
+
+message GPRequest
+{ // google pay verify request
+	string inapp_purchase_data = 1;
+	string signature = 2;
+}
+
+message GPResponse
+{ // response 
+	int32 status = 1; // 1 sucess
+	string options = 2;
+	string product_id = 3; 
+}
