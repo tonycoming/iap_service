@@ -5,4 +5,4 @@ COPY . /go
 WORKDIR /go
 ENV GOPATH /go:/go/.godeps
 ENTRYPOINT /go/bin/ipa_service
-EXPOSE 50003
+EXPOSE 60003

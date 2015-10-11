@@ -2,7 +2,7 @@
 GO=go
 DOT=dot
 
-PROGS = iap_service
+PROGS = service
 
 DOC_DIR = ./doc
 SRCDIR = ./src
