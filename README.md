@@ -1,4 +1,6 @@
 #一个简单的grp 支付验证服务
+(DEPRECATED: use https://github.com/dogenzaka/go-iap instead)
+
 *方便取名字，本服务按平台划分包
 ## NOTICE : google 验证服务没测试，目前没空有空在测试
 # 待完成
